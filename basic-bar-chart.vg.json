@@ -41,7 +41,7 @@
       }
     ]
   },
-  "mark": "bar",
+  "mark": "circle",
   "encoding": {
     "x": {
       "field": "a",
