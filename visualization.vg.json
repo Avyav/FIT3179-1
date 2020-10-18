@@ -75,7 +75,7 @@
           "fill": {"scale": "color", "field": "Total Count"},
           "ariaRoleDescription": {"value": "circle"},
           "description": {
-            "signal": "\"Longitude: \" + (format(datum[\"Longitude\"], \"\")) + \"; Latitude: \" + (format(datum[\"Latitude\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Total Count: \" + (format(datum[\"Total Count\"], \"\")) + \"; Population: \" + (format(datum[\"population\"], \"\"))"
+            "signal": "\"Longitude: \" + (format(datum[\"Longitude\"], \"\")) + \"; Latitude: \" + (format(datum[\"Latitude\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Total Count: \" + (format(datum[\"Total Count\"], \"\"))"
           },
           "x": {"field": "layer_1_x"},
           "y": {"field": "layer_1_y"},
