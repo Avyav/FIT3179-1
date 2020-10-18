@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 500,
-  "height": 400,
+  "width": 1500,
+  "height": 1200,
   "title": {
     "text": "Kickstarter Projects from Around the World",
     "frame": "group"
