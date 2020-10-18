@@ -70,7 +70,7 @@
         "update": {
           "opacity": {"value": 0.7},
           "tooltip": {
-            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Count\": format(datum[\"Total Count\"], \"\"), \"Population\": format(datum[\"population\"], \"\")}"
+            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Count\": format(datum[\"Total Count\"], \"\")}"
           },
           "fill": {"scale": "color", "field": "Total Count"},
           "ariaRoleDescription": {"value": "circle"},
