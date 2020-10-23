@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Avg. Number of Backers for KickStarter Projects in American States, 2009-2017",
   "width": 800,
   "height": 600,
   "data": {
