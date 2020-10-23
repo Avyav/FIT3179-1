@@ -60,14 +60,15 @@
             "field": "new_launch_date",
             "type": "temporal",
             "axis": {
-                "grid": false
+                "grid": false,
+                "title": "Project Launch Date"
             }
         },
         "y": {
             "field": "Categories",
             "type": "nominal",
             "axis": {
-                "title": ""
+                "title": "Project Categories"
             }
         }
     },
