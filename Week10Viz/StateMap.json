@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Avg. Number of Backers for KickStarter Projects in American States, 2009-2017",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
+    "format": {"type": "topojson", "feature": "states"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/Mapping.csv"
+        },
+        "key": "State",
+        "fields": ["Mean Bakers"]
+      }
+    }
+  ],
+  "projection": {"type": "albersUsa"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Mean Bakers",
+      "type": "quantitative",
+      "scale": {"scheme": "bluegreen"},
+      "title": "Avg. Number of Backers"
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "State"},
+      {
+        "field": "Mean Bakers",
+        "type": "quantitative",
+        "title": "Avg. Number of Backers"
+      }
+    ]
+  },
+  "config": {
+    "background": "floralwhite"
+  }
+}
