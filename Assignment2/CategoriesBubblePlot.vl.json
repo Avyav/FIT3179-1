@@ -1,0 +1,163 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/CategoriesBubblePlot.csv"
+    },
+    "width": 800,
+    "height": 600,
+    "params": [
+        {
+            "name": "Category_Selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "publishing",
+                    "art",
+                    "fashion",
+                    "film and video",
+                    "comics",
+                    "technology",
+                    "games",
+                    "design",
+                    "crafts",
+                    "journalism",
+                    "food",
+                    "music",
+                    "photography",
+                    "theater",
+                    "dance"
+                ],
+                "labels": [
+                    "Show All",
+                    "publishing",
+                    "art",
+                    "fashion",
+                    "film and video",
+                    "comics",
+                    "technology",
+                    "games",
+                    "design",
+                    "crafts",
+                    "journalism",
+                    "food",
+                    "music",
+                    "photography",
+                    "theater",
+                    "dance"
+                ],
+                "name": "Category Selection: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "Category_Selection == null || datum.Categories == Category_Selection"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "new_launch_date",
+            "type": "temporal",
+            "axis": {
+                "grid": false,
+                "title": "Project Launch Date"
+            }
+        },
+        "y": {
+            "field": "Categories",
+            "type": "nominal",
+            "axis": {
+                "title": "Project Categories"
+            }
+        }
+    },
+    "layer": [ 
+        {
+            "encoding": {
+                "size": {
+                    "field": "Prct_goal",
+                    "type": "quantitative",
+                    "title": "Percent of Goal Reached",
+                    "legend": {
+                        "clipHeight": 30
+                    },
+                    "scale": {
+                        "rangeMax": 5000
+                    }
+                },
+                "color": {
+                    "field": "Categories",
+                    "type": "nominal",
+                    "legend": null
+                },
+                "tooltip": [
+                    {
+                        "field": "Categories",
+                        "type": "nominal",
+                        "title": "Category"
+                    },
+                    {
+                        "field": "Prct_goal",
+                        "type": "quantitative",
+                        "title": "% of Goal"
+                    },
+                    {
+                        "field": "new_launch_date",
+                        "type": "temporal",
+                        "title": "Launch Date"
+                    }
+                ]
+            },
+            "mark": {
+                "type": "circle",
+                "opacity": 0.8,
+                "stroke": null,
+                "strokeWidth": 1
+            }
+        },
+        {
+            "mark":{
+                "type":"text",
+                "align":"center",
+                "baseline":"bottom",
+                "dy":-8,
+                "fontSize":11.5,
+                "fontStyle":"italic"
+             },
+             "encoding":{
+                "text":{
+                   "field":"new_launch_date",
+                   "type":"temporal"
+                },
+                "color":{
+                   "value":"black"
+                },
+                "opacity":{
+                   "condition":{
+                      "test": "datum['Prct_goal'] == 112600 || datum['Prct_goal'] == 2303607 || datum['Prct_goal'] == 303833.2 || datum['Prct_goal'] == 930250 || datum['Prct_goal'] == 1506600 || datum['Prct_goal'] == 199500 ",
+                      "value":1
+                   },
+                   "value":0
+                },
+                "tooltip": [
+                    {
+                        "field": "Categories",
+                        "type": "nominal",
+                        "title": "Category"
+                    },
+                    {
+                        "field": "Prct_goal",
+                        "type": "quantitative",
+                        "title": "% of Goal"
+                    },
+                    {
+                        "field": "new_launch_date",
+                        "type": "temporal",
+                        "title": "Launch Date"
+                    }
+                ]
+             }
+        }
+    ]
+}
