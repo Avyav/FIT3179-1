@@ -22,7 +22,7 @@
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Mean Backers",
+      "field": "Mean Bakers",
       "type": "quantitative",
       "scale": {"scheme": "bluegreen"},
       "title": "Avg. Number of Backers"
