@@ -1,0 +1,164 @@
+{
+   "$schema":"https://vega.github.io/schema/vega-lite/v4.json",
+   "description":"A vertical box plot showing median, min, and max body mass of penguins.",
+   "data":{
+      "url":"https://raw.githubusercontent.com/snag41/FIT3179/master/data/BoxPlot.csv"
+   },
+   "params": [
+     {
+         "name": "Category_Selection",
+         "bind": {
+             "input": "select",
+             "options": [
+                 null,
+                 "publishing",
+                 "art",
+                 "fashion",
+                 "film and video",
+                 "comics",
+                 "technology",
+                 "games",
+                 "design",
+                 "crafts",
+                 "journalism",
+                 "food",
+                 "music",
+                 "photography",
+                 "theater",
+                 "dance"
+             ],
+             "labels": [
+                 "Show All",
+                 "publishing",
+                 "art",
+                 "fashion",
+                 "film and video",
+                 "comics",
+                 "technology",
+                 "games",
+                 "design",
+                 "crafts",
+                 "journalism",
+                 "food",
+                 "music",
+                 "photography",
+                 "theater",
+                 "dance"
+             ],
+             "name": "Category Selection: "
+         }
+     }
+ ],
+ "transform": [
+     {
+         "filter": "Category_Selection == null || datum.Categories == Category_Selection"
+     }
+ ],
+   "vconcat":[
+      {
+
+   "width": 800,
+   "height": 200,
+         "mark":{
+            "type":"boxplot",
+            "extent":"min-max"
+         },
+         "encoding":{
+            "x":{
+               "field":"Categories",
+               "type":"nominal"
+            },
+            "color":{
+               "field":"Categories",
+               "type":"nominal",
+               "legend":null
+            },
+            "y":{
+               "field":"goal",
+               "type":"quantitative",
+               "scale":{
+                  "zero":false,
+                  "type":"log",
+                  "domain":[
+                     1,
+                     100000
+                  ]
+               },
+               "axis": {
+                  "tickCount":5
+               }
+            }
+         }
+      },
+      {
+
+   "width": 800,
+   "height": 200,
+         "mark":{
+            "type":"boxplot",
+            "extent":"min-max"
+         },
+         "encoding":{
+            "x":{
+               "field":"Categories",
+               "type":"nominal"
+            },
+            "color":{
+               "field":"Categories",
+               "type":"nominal",
+               "legend":null
+            },
+            "y":{
+               "field":"backers_count",
+               "type":"quantitative",
+               "scale":{
+                  "zero":false,
+                  "type":"log",
+                  "domain":[
+                     1,
+                     1000
+                  ]
+               },
+               "axis": {
+                  "tickCount":3
+               }
+            }
+         }
+      },
+      {
+
+   "width": 800,
+   "height": 200,
+         "mark":{
+            "type":"boxplot",
+            "extent":"min-max"
+         },
+         "encoding":{
+            "x":{
+               "field":"Categories",
+               "type":"nominal"
+            },
+            "color":{
+               "field":"Categories",
+               "type":"nominal",
+               "legend":null
+            },
+            "y":{
+               "field":"pledged",
+               "type":"quantitative",
+               "scale":{
+                  "zero":false,
+                  "type":"log",
+                  "domain":[
+                     1,
+                     100000
+                  ]
+               },
+               "axis": {
+                  "tickCount":5
+               }
+            }
+         }
+      }
+   ]
+}
