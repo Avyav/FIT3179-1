@@ -1,21 +1,6 @@
-City,Year,Average_Goal
-Adelaide,2014,4767
-Brisbane,2014,11000
-Melbourne,2014,57503
-Perth,2014,1800
-Sydney,2014,3033
-Adelaide,2015,5000
-Brisbane,2015,2750
-Melbourne,2015,735
-Perth,2015,20250
-Sydney,2015,10281
-Adelaide,2016,82333
-Brisbane,2016,12500
-Melbourne,2016,9031
-Perth,2016,20738
-Sydney,2016,979857
-Adelaide,2017,32122
-Brisbane,2017,89685
-Melbourne,2017,50758
-Perth,2017,17029
-Sydney,2017,82018
+Country,2014,2017
+Australia,38560,57673
+Canada,51652,57037
+United Kingdom,3713,10993
+New Zealand,1617,21457
+United States,49539,49136
