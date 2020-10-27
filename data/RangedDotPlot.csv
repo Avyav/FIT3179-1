@@ -1,6 +1,11 @@
-Country,2014,2017
-Australia,38560,57673
-Canada,51652,57037
-United Kingdom,3713,10993
-New Zealand,1617,21457
-United States,49539,49136
+Country,Year,Average_Count
+Australia,2014,38560
+Canada,2014,51652
+United Kingdom,2014,3713
+New Zealand,2014,1617
+United States,2014,49539
+Australia,2017,57673
+Canada,2017,57037
+United Kingdom,2017,10993
+New Zealand,2017,21457
+United States,2017,49136
