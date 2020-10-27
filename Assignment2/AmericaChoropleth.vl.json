@@ -14,7 +14,7 @@
           "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/Mapping.csv"
         },
         "key": "State",
-        "fields": ["Mean Backers"]
+        "fields": ["Mean Bakers"]
       }
     }
   ],

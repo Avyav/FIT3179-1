@@ -2,7 +2,6 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 1250,
     "height": 1000,
-    "title": "Kickstarter Projects from Around the World",
     "projection": {
         "type": "equirectangular"
     },
@@ -100,5 +99,8 @@
                 }
             }
         }
-    ]
+    ],
+    "config": {
+      "background": "floralwhite"
+    }
 }

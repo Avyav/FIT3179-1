@@ -1,58 +1,61 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/MultiLineChart.csv"},
-    "width": 400,
-    "height": 300,
-    "encoding": {"x": {"field": "project_month", "type": "ordinal", "sort": ["January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"]}},
-    "layer": [
-      {
-        "encoding": {
-          "color": {"field": "project_status", "type": "nominal"},
-          "y": {"field": "total_count", "type": "quantitative"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/MultiLineChart.csv"},
+  "width": 400,
+  "height": 300,
+  "encoding": {"x": {"field": "project_month", "type": "ordinal", "sort": ["January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"]}},
+  "layer": [
+    {
+      "encoding": {
+        "color": {"field": "project_status", "type": "nominal"},
+        "y": {"field": "total_count", "type": "quantitative"}
+      },
+      "layer": [
+        {"mark": "line"},
+        {"transform": [{"filter": {"selection": "hover"}}], "mark": "point"}
+      ]
+    },
+    {
+      "transform": [{"pivot": "project_status", "value": "total_count", "groupby": ["project_month"]}],
+      "mark": "rule",
+      "encoding": {
+        "opacity": {
+          "condition": {"value": 0.3, "selection": "hover"},
+          "value": 0
         },
-        "layer": [
-          {"mark": "line"},
-          {"transform": [{"filter": {"selection": "hover"}}], "mark": "point"}
+        "tooltip": [
+          {"field": "project_month", "type": "nominal"},
+          {"field": "failed", "type": "quantitative"},
+          {"field": "successful", "type": "quantitative"},
+          {"field": "live", "type": "quantitative"},
+          {"field": "canceled", "type": "quantitative"},
+          {"field": "suspended", "type": "quantitative"}
         ]
       },
-      {
-        "transform": [{"pivot": "project_status", "value": "total_count", "groupby": ["project_month"]}],
-        "mark": "rule",
-        "encoding": {
-          "opacity": {
-            "condition": {"value": 0.3, "selection": "hover"},
-            "value": 0
-          },
-          "tooltip": [
-            {"field": "canceled", "type": "quantitative"},
-            {"field": "failed", "type": "quantitative"},
-            {"field": "live", "type": "quantitative"},
-            {"field": "successful", "type": "quantitative"},
-            {"field": "suspended", "type": "quantitative"}
-          ]
-        },
-        "selection": {
-          "hover": {
-            "type": "single",
-            "fields": ["project_month"],
-            "nearest": true,
-            "on": "mouseover",
-            "empty": "none",
-            "clear": "mouseout"
-          }
+      "selection": {
+        "hover": {
+          "type": "single",
+          "fields": ["project_month"],
+          "nearest": true,
+          "on": "mouseover",
+          "empty": "none",
+          "clear": "mouseout"
         }
       }
-    ]
+    }
+  ],
+  "config": {
+    "background": "floralwhite"
   }
-  
+}
