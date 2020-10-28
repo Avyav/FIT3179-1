@@ -31,8 +31,8 @@
         }
 
         .page {
-            width: 1280px;
-            background-color: white;
+            width: 1000px;
+            background-color: whitesmoke;
             margin: auto;
             padding: 50px;
             padding-top: 35px;
@@ -63,14 +63,16 @@
             font-size: 14px;
         }
 
-        .title-center {
-            position: absolute;
+        h1 {
+            text-align: center;
+        }
 
+        h2 {
+            text-align: center;
+        }
 
-            left: 50%;
-
-
-            transform: translate(-50%, -50%);
+        h4 {
+            text-align: center;
         }
     </style>
 </head>
@@ -80,25 +82,43 @@
     <div class="page">
 
         <!-- pure grid group -->
-        <div class="title-center">
+        <div class="pure-g">
             <div class="pure-u-1-1">
                 <h1>KickStarter Projects from Around the World | 2009-2017</h1>
-                <p><i>A summary of KickStarter Projects from different vantage points.</i></p>
+                <h4><i>A summary of KickStarter Projects from different vantage points.</i></h4>
             </div>
         </div>
         <!-- end pure grid group -->
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="title-center"><h3>This is the first section</h3></div>
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2> USA Cities Compared - 2015</h2>
+                    <p> Violent crimes refer to instances of Homicides, Rape, Robberies or Assault. It is important to
+                        visualise crime statistics on a 'per capita' basis, as this normalises numbers for comparison.
+                        Looking at the map, we can see that St. Louis, Memphis and Detroit were the cities with highest
+                        crimes in 2015 </p>
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="vis1" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
             <div class="pure-u-2-3">
                 <div id="vis2" class="vis-container"></div>
             </div>
             <div class="pure-u-1-3">
                 <div class="description description-right">
-                    <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+                    <h2> Population Density impact on Assaults 2000-2015</h2>
+                    <p> The belief is that cities with greater populations will inevitabley have greater numbers of
+                        crimes (most prominent being assault), however the graph indicates that is not the case.
+                        Atlanta, Orlando and Detroit having high numbers of assault. Additionally, we can see an overall
+                        reducing trend in assualt numbers as we travel through the years</p>
                 </div>
             </div>
 
@@ -107,29 +127,84 @@
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="title-center"><h3>This is the second section</h3></div>
             <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>The significant drop in 1995 </h2>
+                    <p>Looking at cities with the highest nominal (unadjusted) numbers of crime, we can see that crime
+                        numbers were significantly reduced between 1995-2005. This signifies the so called "Crime Drop".
+                        The crime drop or crime decline is a pattern observed in many countries whereby rates of many
+                        types of crime declined by 50% or more beginning in the mid 1990s. Further information can be
+                        found here: <a href="https://en.wikipedia.org/wiki/Crime_drop"
+                            target="_blank">https://en.wikipedia.org/wiki/Crime_drop</a>.</p>
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="vis3" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-2-3">
                 <div id="vis4" class="vis-container"></div>
             </div>
             <div class="pure-u-1-3">
-                <div id="vis3" class="vis-container"></div>
-                <div class="pure-u-1-3">
-                    <div class="description description-left">
-                        <p>Using all three columns without merging. Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien
-                            faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
-                    </div>
+                <div class="description description-right">
+                    <h2>Population increased at a constant rate</h2>
+                    <p>It is interesting to see the the drop off in crime in 1995 is not linked to population changes
+                        over that period. Population has increased quite consistently, and New York soared between
+                        1995-2000 yet showed a significant decrease in crime.</p>
                 </div>
             </div>
 
         </div>
         <!-- end pure grid group -->
 
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>City comparison by crime type</h2>
+                    <p> This chart places all types of violent crime as a percentange of the cities total violent crime
+                        in 2015. We can see that Orlando has the highest percentage of Assaults, Salt Lake City leads
+                        the way for highest percentage of Rapes, Cleveland has the most dominant percentage of robberies
+                        and New Orleans has the highest percentage of homicides. This chart helps show the build up of
+                        violent crimes in these cities for a better comparison</p>
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="vis5" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="vis7" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <h2>The most dangerous cities over time (1975-2015)</h2>
+                    <p> Atlanta, Baltimore, Detroit, Orlando and Tampa have show the highest numbers of over the 40
+                        years between 1975-2015. From the steamgraph we can see that 1993 was the pinnacle of Crime,
+                        reporting the highest numbers before the "Crime Drop-Off" as mentioned above. In all 5 cities we
+                        can see reductions in crime even in more recent periods (2006 - 2015)</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- end pure grid group -->
+
+
+
         <div class="pure-g">
             <div class="pure-u-1-1 small-font">
-                <p>This visualisation is created by <a href="https://github.com/snag41" target="_blank">Shivang Nagar
-                    </a>. The datasource is <a href="#"" target=" _blank">some data repository online</href>
-                        .</p>
+                <p>This visualisation is created by <a href="https://github.com/snag41/FIT3179" target="_blank">Shivang
+                        Nagar</a>. The datasource is <a href="https://www.kaggle.com/marshallproject/crime-rates"
+                        target="_blank">Kaggle</a></href>.</p>
             </div>
         </div>
 
@@ -137,8 +212,12 @@
     </div> <!-- end page -->
 
     <script type="text/javascript">
-        var specVis1 = "./normalised-stacked-bars-responsive.json";
-        var specVis2 = "./line-chart-responsive.json";
+        var specVis1 = "./VIZ1_crimes_US.vl.json";
+        var specVis2 = "./VIZ2_crimes_US.vl.json";
+        var specVis3 = "./VIZ4_crimes_US.vl.json";
+        var specVis4 = "./VIZ3_crimes_US.vl.json";
+        var specVis5 = "./VIZ5_crimes_US.vl.json";
+        var specVis7 = "./VIZ7_crimes_US.vl.json";
 
         vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -148,11 +227,19 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
+        vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+        vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
