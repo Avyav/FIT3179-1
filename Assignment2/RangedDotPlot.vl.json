@@ -1,17 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/RangedDotPlot.csv"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/RangedDotPlot.csv"
+  },
   "width": 600,
   "height": 200,
   "encoding": {
     "x": {
       "field": "Average_Count",
       "type": "quantitative",
-      "title": "Average Project Monetary Goal (USD)",
+      "title": "Average Project Goal (USD)",
       "axis": {
         "tickCount": 8
       }
-
     },
     "y": {
       "field": "Country",
@@ -33,7 +34,9 @@
           "field": "Country",
           "type": "nominal"
         },
-        "color": {"value": "#db646f"}
+        "color": {
+          "value": "#db646f"
+        }
       }
     },
     {
@@ -46,17 +49,24 @@
           "field": "Year",
           "type": "ordinal",
           "scale": {
-            "domain": [2014, 2017],
-            "range": ["#b2df8a", "#33a02c"]
+            "domain": [
+              2014,
+              2017
+            ],
+            "range": [
+              "#b2df8a",
+              "#33a02c"
+            ]
           },
           "title": "Year"
         },
-        "size": {"value": 50},
-        "opacity": {"value": 1}
+        "size": {
+          "value": 50
+        },
+        "opacity": {
+          "value": 1
+        }
       }
     }
-  ],
-    "config": {
-      "background": "floralwhite"
-    }
+  ]
 }

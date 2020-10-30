@@ -1,8 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/MultiLineChart.csv"},
-  "width": 400,
+  "width": 600,
   "height": 300,
+  "selection": {
+    "industry": {
+      "type": "multi", "fields": ["series"], "bind": "legend"
+    }
+  },
   "encoding": {"x": {"field": "project_month", "type": "ordinal", "sort": ["January",
     "February",
     "March",
@@ -14,16 +19,15 @@
     "September",
     "October",
     "November",
-    "December"]}},
+    "December"], "title": "Project Launch Month"}},
   "layer": [
     {
       "encoding": {
-        "color": {"field": "project_status", "type": "nominal"},
-        "y": {"field": "total_count", "type": "quantitative"}
+        "color": {"field": "project_status", "type": "nominal", "title": "Project Status"},
+        "y": {"field": "total_count", "type": "quantitative", "title": "Count"}
       },
       "layer": [
-        {"mark": "line"},
-        {"transform": [{"filter": {"selection": "hover"}}], "mark": "point"}
+        {"mark": "line"}
       ]
     },
     {
@@ -35,12 +39,12 @@
           "value": 0
         },
         "tooltip": [
-          {"field": "project_month", "type": "nominal"},
-          {"field": "failed", "type": "quantitative"},
-          {"field": "successful", "type": "quantitative"},
-          {"field": "live", "type": "quantitative"},
-          {"field": "canceled", "type": "quantitative"},
-          {"field": "suspended", "type": "quantitative"}
+          {"field": "canceled", "type": "quantitative", "title": "Canceled"},
+          {"field": "failed", "type": "quantitative", "title": "Failed"},
+          {"field": "project_month", "type": "nominal", "title": "Month"},
+          {"field": "live", "type": "quantitative", "title": "Live"},
+          {"field": "successful", "type": "quantitative", "title": "Successful"},
+          {"field": "suspended", "type": "quantitative", "title": "Suspended"}
         ]
       },
       "selection": {
@@ -54,8 +58,5 @@
         }
       }
     }
-  ],
-  "config": {
-    "background": "floralwhite"
-  }
+  ]
 }

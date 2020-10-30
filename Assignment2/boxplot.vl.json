@@ -28,21 +28,21 @@
              ],
              "labels": [
                  "Show All",
-                 "publishing",
-                 "art",
-                 "fashion",
-                 "film and video",
-                 "comics",
-                 "technology",
-                 "games",
-                 "design",
-                 "crafts",
-                 "journalism",
-                 "food",
-                 "music",
-                 "photography",
-                 "theater",
-                 "dance"
+                 "Publishing",
+                 "Art",
+                 "Fashion",
+                 "Film and video",
+                 "Comics",
+                 "Technology",
+                 "Games",
+                 "Design",
+                 "Crafts",
+                 "Journalism",
+                 "Food",
+                 "Music",
+                 "Photography",
+                 "Theater",
+                 "Dance"
              ],
              "name": "Category Selection: "
          }
@@ -56,7 +56,7 @@
    "vconcat":[
       {
 
-   "width": 800,
+   "width": 600,
    "height": 200,
          "mark":{
             "type":"boxplot",
@@ -65,7 +65,8 @@
          "encoding":{
             "x":{
                "field":"Categories",
-               "type":"nominal"
+               "type":"nominal",
+               "title": ""
             },
             "color":{
                "field":"Categories",
@@ -75,6 +76,7 @@
             "y":{
                "field":"goal",
                "type":"quantitative",
+               "title": "Project Goal",
                "scale":{
                   "zero":false,
                   "type":"log",
@@ -91,7 +93,7 @@
       },
       {
 
-   "width": 800,
+   "width": 600,
    "height": 200,
          "mark":{
             "type":"boxplot",
@@ -100,7 +102,8 @@
          "encoding":{
             "x":{
                "field":"Categories",
-               "type":"nominal"
+               "type":"nominal",
+               "title": ""
             },
             "color":{
                "field":"Categories",
@@ -110,6 +113,7 @@
             "y":{
                "field":"backers_count",
                "type":"quantitative",
+               "title": "Number of Backers",
                "scale":{
                   "zero":false,
                   "type":"log",
@@ -126,7 +130,7 @@
       },
       {
 
-   "width": 800,
+   "width": 600,
    "height": 200,
          "mark":{
             "type":"boxplot",
@@ -135,7 +139,8 @@
          "encoding":{
             "x":{
                "field":"Categories",
-               "type":"nominal"
+               "type":"nominal",
+               "title": "Project Category"
             },
             "color":{
                "field":"Categories",
@@ -145,6 +150,7 @@
             "y":{
                "field":"pledged",
                "type":"quantitative",
+               "title": "Total Amount Pledged",
                "scale":{
                   "zero":false,
                   "type":"log",
@@ -159,8 +165,5 @@
             }
          }
       }
-   ],
-   "config": {
-     "background": "floralwhite"
-   }
+   ]
 }
