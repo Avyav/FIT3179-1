@@ -1,60 +1,62 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/RangedDotPlot.csv"},
-    "width": 600,
-    "height": 200,
-    "encoding": {
-      "x": {
-        "field": "Average_Count",
-        "type": "quantitative",
-        "title": "Average Project Monetary Goal (USD)"
-  
-      },
-      "y": {
-        "field": "Country",
-        "type": "nominal",
-        "title": "Country",
-        "axis": {
-          "offset": 5,
-          "ticks": false,
-          "minExtent": 70,
-          "domain": false
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/RangedDotPlot.csv"},
+  "width": 600,
+  "height": 200,
+  "encoding": {
+    "x": {
+      "field": "Average_Count",
+      "type": "quantitative",
+      "title": "Average Project Monetary Goal (USD)",
+      "axis": {
+        "tickCount": 8
+      }
+
+    },
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Country",
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "color": {"value": "#db646f"}
       }
     },
-    "layer": [
-      {
-        "mark": "line",
-        "encoding": {
-          "detail": {
-            "field": "Country",
-            "type": "nominal"
-          },
-          "color": {"value": "#db646f"}
-        }
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
       },
-      {
-        "mark": {
-          "type": "point",
-          "filled": true
-        },
-        "encoding": {
-          "color": {
-            "field": "Year",
-            "type": "ordinal",
-            "scale": {
-              "domain": [2014, 2017],
-              "range": ["#b2df8a", "#33a02c"]
-            },
-            "title": "Year"
+      "encoding": {
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {
+            "domain": [2014, 2017],
+            "range": ["#b2df8a", "#33a02c"]
           },
-          "size": {"value": 50},
-          "opacity": {"value": 1}
-        }
+          "title": "Year"
+        },
+        "size": {"value": 50},
+        "opacity": {"value": 1}
       }
-    ],
-      "config": {
-        "background": "floralwhite"
-      }
-  }
-  
+    }
+  ],
+    "config": {
+      "background": "floralwhite"
+    }
+}
