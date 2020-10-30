@@ -61,7 +61,8 @@
             "type": "temporal",
             "axis": {
                 "grid": false,
-                "title": "Project Launch Date"
+                "title": "Project Launch Date",
+                "tickCount": "year"
             }
         },
         "y": {
@@ -141,11 +142,6 @@
                    "value":0
                 },
                 "tooltip": [
-                    {
-                        "field": "Categories",
-                        "type": "nominal",
-                        "title": "Category"
-                    },
                     {
                         "field": "Prct_goal",
                         "type": "quantitative",
