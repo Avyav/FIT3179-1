@@ -23,7 +23,7 @@
   "layer": [
     {
       "encoding": {
-        "color": {"field": "project_status", "type": "nominal", "title": "Project Status"},
+        "color": {"field": "project_status", "type": "nominal", "title": "Project Status","scale": {"range": ["#003f5c", "#ff6361", "#bc5090", "#488f31", "#ffa600"]}},
         "y": {"field": "total_count", "type": "quantitative", "title": "Count"}
       },
       "layer": [

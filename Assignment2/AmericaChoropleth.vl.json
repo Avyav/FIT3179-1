@@ -4,7 +4,10 @@
   "height": 450,
   "data": {
     "url": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
-    "format": {"type": "topojson", "feature": "states"}
+    "format": {
+      "type": "topojson",
+      "feature": "states"
+    }
   },
   "transform": [
     {
@@ -14,21 +17,35 @@
           "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/Mapping.csv"
         },
         "key": "State",
-        "fields": ["Mean Bakers"]
+        "fields": [
+          "Mean Bakers"
+        ]
       }
     }
   ],
-  "projection": {"type": "albersUsa"},
-  "mark": {"type": "geoshape"},
+  "projection": {
+    "type": "albersUsa"
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "black",
+    "strokeWidth": 0.1
+  },
   "encoding": {
     "color": {
       "field": "Mean Bakers",
       "type": "quantitative",
-      "scale": {"scheme": "bluegreen"},
+      "scale": {
+        "scheme": "bluegreen"
+      },
       "title": "Avg. Number of Backers"
     },
     "tooltip": [
-      {"field": "properties.name", "type": "nominal", "title": "State"},
+      {
+        "field": "properties.name",
+        "type": "nominal",
+        "title": "State"
+      },
       {
         "field": "Mean Bakers",
         "type": "quantitative",
