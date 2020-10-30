@@ -39,9 +39,9 @@
           "value": 0
         },
         "tooltip": [
+          {"field": "project_month", "type": "nominal", "title": "Month"},
           {"field": "canceled", "type": "quantitative", "title": "Canceled"},
           {"field": "failed", "type": "quantitative", "title": "Failed"},
-          {"field": "project_month", "type": "nominal", "title": "Month"},
           {"field": "live", "type": "quantitative", "title": "Live"},
           {"field": "successful", "type": "quantitative", "title": "Successful"},
           {"field": "suspended", "type": "quantitative", "title": "Suspended"}
