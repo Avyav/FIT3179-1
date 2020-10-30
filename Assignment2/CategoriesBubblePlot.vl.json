@@ -3,8 +3,8 @@
     "data": {
         "url": "https://raw.githubusercontent.com/snag41/FIT3179/master/data/CategoriesBubblePlot.csv"
     },
-    "width": 800,
-    "height": 600,
+    "width": 600,
+    "height": 450,
     "params": [
         {
             "name": "Category_Selection",
@@ -159,8 +159,5 @@
                 ]
              }
         }
-    ],
-    "config": {
-      "background": "floralwhite"
-    }
+    ]
 }
