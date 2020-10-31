@@ -30,7 +30,7 @@
            "type":"boxplot",
            "extent":"min-max"
    },
-   "width": 800,
+   "width": 790,
    "encoding": {
      "x": {
        "field": {"repeat": "repeat"},
