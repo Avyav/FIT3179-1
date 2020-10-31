@@ -1,57 +1,59 @@
 {
-   "$schema":"https://vega.github.io/schema/vega-lite/v4.json",
-   "data":{
-      "url":"https://raw.githubusercontent.com/snag41/FIT3179/master/data/BoxPlot.csv"
+  "$schema":"https://vega.github.io/schema/vega-lite/v4.json",
+  "data":{
+     "url":"https://raw.githubusercontent.com/snag41/FIT3179/master/data/BoxPlot.csv"
+  },
+  "transform": [{"calculate": "datum[y_selection]", "as": "y_parameter"}],
+  "params": [
+   {
+     "name": "y_selection",
+     "value": "goal",
+     "bind": {
+       "input": "select",
+       "options": [
+         "goal",
+         "backers_count",
+         "pledged"
+       ],
+       "name": "Select Parameter",
+       "labels": [
+         "Project Goal Amount",
+         "Number of Backers",
+         "Project Pledged Amount"
+       ]
+     }
+   }
+ ],
+ "repeat": ["Categories"],
+ "spec": {
+     "mark":{
+           "type":"boxplot",
+           "extent":"min-max"
    },
-   "transform": [{"calculate": "datum[y_selection]", "as": "y_parameter"}],
-   "params": [
-    {
-      "name": "y_selection",
-      "value": "goal",
-      "bind": {
-        "input": "select",
-        "options": [
-          "goal",
-          "backers_count",
-          "pledged"
-        ],
-        "name": "Select Parameter",
-        "labels": [
-          "Project Goal Amount",
-          "Number of Backers",
-          "Project Pledged Amount"
-        ]
-      }
-    }
-  ],
-  "repeat": ["Categories"],
-  "spec": {
-      "mark":{
-            "type":"boxplot",
-            "extent":"min-max"
-    },
-    "width": 800,
-    "encoding": {
-      "x": {
-        "field": {"repeat": "repeat"},
-        "type": "nominal",
-        "sort": "ascending",
-        "axis": {"labelAngle": 0, "labelOverlap": "parity"}
-      },
-      "y": {
-        "field": "y_parameter",
-        "type": "quantitative",
-        "axis": {"labelOverlap": "parity", "title": "Selected Y Parameter", "tickCount": 5}
-      },
-      "tooltip": [
-        {"field": "Categories", "type": "nominal", "title": "Category"},
-        {"field": "y_parameter"}
-      ],
-      "color":{
-               "field":"Categories",
-               "type":"nominal",
-               "legend": null
-        }
-    }
-  }
+   "width": 800,
+   "encoding": {
+     "x": {
+       "field": {"repeat": "repeat"},
+       "type": "nominal",
+       "sort": "ascending",
+       "axis": {"labelAngle": 0, "labelOverlap": "parity"}
+     },
+     "y": {
+       "field": "y_parameter",
+       "type": "quantitative",
+       "axis": {"labelOverlap": "parity", "title": "Selected Y Parameter", "tickCount": 5}
+     },
+     "tooltip": [
+       {"field": "Categories", "type": "nominal", "title": "Category"},
+       {"field": "y_parameter"}
+     ],
+     "color": {
+     "condition": {
+       "test": "datum['Categories'] === 'technology' || datum['Categories'] === 'comics' || datum['Categories'] === 'journalism' || datum['Categories'] === 'film and video'",
+       "value": "#05ce78"
+     },
+     "value": "#dbdbdb" 
+   }
+   }
+ }
 }
