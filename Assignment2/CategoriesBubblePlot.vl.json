@@ -6,54 +6,22 @@
     "width": 600,
     "height": 450,
     "params": [
-        {
-            "name": "Category_Selection",
-            "bind": {
-                "input": "select",
-                "options": [
-                    null,
-                    "publishing",
-                    "art",
-                    "fashion",
-                    "film and video",
-                    "comics",
-                    "technology",
-                    "games",
-                    "design",
-                    "crafts",
-                    "journalism",
-                    "food",
-                    "music",
-                    "photography",
-                    "theater",
-                    "dance"
-                ],
-                "labels": [
-                    "Show All",
-                    "publishing",
-                    "art",
-                    "fashion",
-                    "film and video",
-                    "comics",
-                    "technology",
-                    "games",
-                    "design",
-                    "crafts",
-                    "journalism",
-                    "food",
-                    "music",
-                    "photography",
-                    "theater",
-                    "dance"
-                ],
-                "name": "Category Selection: "
-            }
-        }
-    ],
+ {
+ "name": "Launch_Year",
+ "value": 0,
+ "bind": {
+ "input": "range",
+ "min": 2008,
+ "max": 2016,
+ "step": 1,
+ "name": "Select Minimum Launch Year: "
+ }
+ }],
     "transform": [
         {
-            "filter": "Category_Selection == null || datum.Categories == Category_Selection"
-        }
+          "filter": "datum.Prct_goal > 5000"
+        },
+        {"filter": "year(datum.new_launch_date) > Launch_Year"}
     ],
     "encoding": {
         "x": {
@@ -62,7 +30,8 @@
             "axis": {
                 "grid": false,
                 "title": "Project Launch Date",
-                "tickCount": "year"
+                "tickCount": "year",
+                "format": "%Y"
             }
         },
         "y": {
@@ -75,11 +44,19 @@
     },
     "layer": [ 
         {
+
+    "selection": {
+ "category_highlight": {
+ "type": "multi",
+ "fields": ["Categories"],
+ "bind": "legend"
+ }
+ },
             "encoding": {
                 "size": {
                     "field": "Prct_goal",
                     "type": "quantitative",
-                    "title": "Percent of Goal Reached",
+                    "title": "Percentage of Goal Reached",
                     "legend": {
                         "clipHeight": 30
                     },
@@ -90,25 +67,26 @@
                 "color": {
                     "field": "Categories",
                     "type": "nominal",
-                    "legend": null
+                    "legend": {
+                      "title": "Category (Select Me!)"
+                    }
                 },
                 "tooltip": [
                     {
-                        "field": "Categories",
-                        "type": "nominal",
-                        "title": "Category"
-                    },
-                    {
                         "field": "Prct_goal",
                         "type": "quantitative",
-                        "title": "% of Goal"
+                        "title": "% of Goal Reached"
                     },
                     {
                         "field": "new_launch_date",
                         "type": "temporal",
-                        "title": "Launch Date"
+                        "title": "Project Launch Date"
                     }
-                ]
+                ],
+                "opacity": {
+ "condition": {"selection": "category_highlight", "value": 1},
+ "value": 0.2
+ }
             },
             "mark": {
                 "type": "circle",
@@ -122,14 +100,14 @@
                 "type":"text",
                 "align":"center",
                 "baseline":"bottom",
-                "dy":-8,
+                "dy":-12,
                 "fontSize":11.5,
                 "fontStyle":"italic"
              },
              "encoding":{
                 "text":{
-                   "field":"new_launch_date",
-                   "type":"temporal"
+                   "field":"Prct_goal",
+                   "type":"quantitative"
                 },
                 "color":{
                    "value":"black"
@@ -140,19 +118,7 @@
                       "value":1
                    },
                    "value":0
-                },
-                "tooltip": [
-                    {
-                        "field": "Prct_goal",
-                        "type": "quantitative",
-                        "title": "% of Goal"
-                    },
-                    {
-                        "field": "new_launch_date",
-                        "type": "temporal",
-                        "title": "Launch Date"
-                    }
-                ]
+                }
              }
         }
     ]
