@@ -3,167 +3,55 @@
    "data":{
       "url":"https://raw.githubusercontent.com/snag41/FIT3179/master/data/BoxPlot.csv"
    },
+   "transform": [{"calculate": "datum[y_selection]", "as": "y_parameter"}],
    "params": [
-     {
-         "name": "Category_Selection",
-         "bind": {
-             "input": "select",
-             "options": [
-                 null,
-                 "publishing",
-                 "art",
-                 "fashion",
-                 "film and video",
-                 "comics",
-                 "technology",
-                 "games",
-                 "design",
-                 "crafts",
-                 "journalism",
-                 "food",
-                 "music",
-                 "photography",
-                 "theater",
-                 "dance"
-             ],
-             "labels": [
-                 "Show All",
-                 "Publishing",
-                 "Art",
-                 "Fashion",
-                 "Film and video",
-                 "Comics",
-                 "Technology",
-                 "Games",
-                 "Design",
-                 "Crafts",
-                 "Journalism",
-                 "Food",
-                 "Music",
-                 "Photography",
-                 "Theater",
-                 "Dance"
-             ],
-             "name": "Category Selection: "
-         }
-     }
- ],
- "transform": [
-     {
-         "filter": "Category_Selection == null || datum.Categories == Category_Selection"
-     }
- ],
-   "vconcat":[
-      {
-
-   "width": 600,
-   "height": 200,
-         "mark":{
-            "type":"boxplot",
-            "extent":"min-max"
-         },
-         "encoding":{
-            "x":{
-               "field":"Categories",
-               "type":"nominal",
-               "title": ""
-            },
-            "color":{
-               "field":"Categories",
-               "type":"nominal",
-               "legend":null
-            },
-            "y":{
-               "field":"goal",
-               "type":"quantitative",
-               "title": "Project Goal",
-               "scale":{
-                  "zero":false,
-                  "type":"log",
-                  "domain":[
-                     1,
-                     100000
-                  ]
-               },
-               "axis": {
-                  "tickCount":5
-               }
-            }
-         }
-      },
-      {
-
-   "width": 600,
-   "height": 200,
-         "mark":{
-            "type":"boxplot",
-            "extent":"min-max"
-         },
-         "encoding":{
-            "x":{
-               "field":"Categories",
-               "type":"nominal",
-               "title": ""
-            },
-            "color":{
-               "field":"Categories",
-               "type":"nominal",
-               "legend":null
-            },
-            "y":{
-               "field":"backers_count",
-               "type":"quantitative",
-               "title": "Number of Backers",
-               "scale":{
-                  "zero":false,
-                  "type":"log",
-                  "domain":[
-                     1,
-                     1000
-                  ]
-               },
-               "axis": {
-                  "tickCount":3
-               }
-            }
-         }
-      },
-      {
-
-   "width": 600,
-   "height": 200,
-         "mark":{
-            "type":"boxplot",
-            "extent":"min-max"
-         },
-         "encoding":{
-            "x":{
-               "field":"Categories",
-               "type":"nominal",
-               "title": "Project Category"
-            },
-            "color":{
-               "field":"Categories",
-               "type":"nominal",
-               "legend":null
-            },
-            "y":{
-               "field":"pledged",
-               "type":"quantitative",
-               "title": "Total Amount Pledged",
-               "scale":{
-                  "zero":false,
-                  "type":"log",
-                  "domain":[
-                     1,
-                     100000
-                  ]
-               },
-               "axis": {
-                  "tickCount":5
-               }
-            }
-         }
+    {
+      "name": "y_selection",
+      "value": "goal",
+      "bind": {
+        "input": "select",
+        "options": [
+          "goal",
+          "backers_count",
+          "pledged"
+        ],
+        "name": "Select Parameter",
+        "labels": [
+          "Project Goal Amount",
+          "Number of Backers",
+          "Project Pledged Amount"
+        ]
       }
-   ]
+    }
+  ],
+  "repeat": ["Categories"],
+  "spec": {
+      "mark":{
+            "type":"boxplot",
+            "extent":"min-max"
+    },
+    "width": 800,
+    "encoding": {
+      "x": {
+        "field": {"repeat": "repeat"},
+        "type": "nominal",
+        "sort": "ascending",
+        "axis": {"labelAngle": 0, "labelOverlap": "parity"}
+      },
+      "y": {
+        "field": "y_parameter",
+        "type": "quantitative",
+        "axis": {"labelOverlap": "parity", "title": "Selected Y Parameter", "tickCount": 5}
+      },
+      "tooltip": [
+        {"field": "Categories", "type": "nominal", "title": "Category"},
+        {"field": "y_parameter"}
+      ],
+      "color":{
+               "field":"Categories",
+               "type":"nominal",
+               "legend": null
+        }
+    }
+  }
 }
